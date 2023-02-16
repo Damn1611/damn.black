@@ -95,10 +95,25 @@ h1.big-text {
   border-width: clamp(2px,3px,4px) !important;
   opacity: 0;
 }
+.my-custom-btn:hover {
+  animation-name: color-transition;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes color-transition {
+  from {
+    color: currentColor;
+  }
+  to {
+    color: primary;
+  }
+}
 
 .btn-done {
   animation: btn-appear 1.5s ease forwards !important;
 }
+
 
 @keyframes btn-appear {
   0% {

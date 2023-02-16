@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import Typewriter from 'typewriter-effect';
 import { FaGithub, FaDiscord, FaSteam } from 'react-icons/fa';
 import './App.css';
+
+import CustomCursor from './components/CustomCursor/CustomCursor';
 
 import quotes from './assets/quotes.json';
 const getQuote = () => {
@@ -11,6 +13,7 @@ const getQuote = () => {
 
 function App() {
   
+
   //countdown
   const [timeLeft, setTimeLeft] = useState<{ days: number, hours: number, minutes: number, seconds: number }>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
@@ -51,9 +54,13 @@ function App() {
   return (
 
     <div className={`App ${isTypingFinished ? 'App-loaded' : ''}`}>
+       <CustomCursor />
       <div className="container" onLoad={handleQuote}>
       <h1 className={`big-text ${isTypingFinished ? 'big-text-done' : ''}`}>
       <Typewriter
+          options={{
+            delay:125
+          }}
   onInit={(typewriter) => {
     typewriter.typeString('<span class="text-primary">Damn.</span>black')
       .callFunction(() => {
@@ -79,7 +86,7 @@ function App() {
       </a>
 
       <a href='https://steamcommunity.com/id/Damn1611/' target='_blank' rel='noopener noreferrer' className={`btn btn-outline tertiary btn-md lg:btn-lg my-custom-btn ${isTypingFinished ? 'btn-done' : ''}`}>
-        <FaSteam style={{ fontSize: '1.8em' }} />
+        <FaSteam style={{ fontSize: '1.8em' }}/>
       </a>
 
       </div>
