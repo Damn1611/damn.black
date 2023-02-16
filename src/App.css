@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: calc(60% + 0.8vmin);
+}
+
+.App {
+  background: rgb(26,7,59);
+  background: linear-gradient(150deg, rgba(26,7,59,1) 0%, rgba(48,10,38,1) 39%, rgba(8,42,39,1) 100%);
+  background-position: 0% 50%;
+  background-size: 300% 300%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  column-gap: 20px;
+}
+.App-loaded {
+  animation: gradient 1.5s ease-out forwards;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 100% 50%;
+	}
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10vh;
+  width: 100vw;
+}
+.btn-container {
+  margin-top: 3vh;
+  display: grid;
+  grid-auto-flow: column;
+}
+
+h1.big-text {
+  font-size: calc(40px + 2vw)/*10vw clamp(2.7rem, 15vw, 7rem) */;
+  font-weight: 700;
+}
+
+.big-text {
+  animation: none;
+}
+.big-text-done {
+  animation: text-up 1.5s ease forwards;
+}
+@keyframes text-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2vh);
+  }
+}
+
+
+
+.quote {
+  opacity: 0;
+  font-weight: 500;
+  width: clamp(50vw, 90vw, 100vw);
+  text-align: center;
+  font-size: calc(15px + 0.390625vw)/*5vw clamp(1rem, 8vw, 2.5rem) */;
+}
+
+.quote-done {
+  animation: quote-appear 0.7s ease-out 1.4s forwards;
+}
+
+@keyframes quote-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.btn {
+  margin: 0 0.6vh;
+}
+
+.my-custom-btn {
+  border-width: clamp(2px,3px,4px) !important;
+  opacity: 0;
+}
+
+.btn-done {
+  animation: btn-appear 1.5s ease forwards !important;
+}
+
+@keyframes btn-appear {
+  0% {
+    transform: translateY(-4vh);
+    opacity: 0;
+    margin: 0 0.4rem;
+  }
+  40% {
+    transform: translateY(-2vh);
+    opacity: 0.4;
+    margin: 0 0.4rem;
+  }
+  100% {
+    transform: translateY(2vh);
+    opacity: 1;
+    margin: 0 1rem;
+  }
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1vh;
+  font-size: calc(13px + 0.390625vw)/* 5vw */;
+  font-weight: 400;
+}
+
+.countdown-main {
+  opacity: 0;
+}
+
+.countdown-main-done {
+  animation: countdown-appear 0.7s ease-out 2s forwards;
+}
+
+@keyframes countdown-appear {
+  0% {
+    transform: translateY(1vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(4.5vh);
+    opacity: 1;
+  }
+}
