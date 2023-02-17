@@ -4,29 +4,26 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@babel/helper-module-imports": "^7.18.6",
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-regular-svg-icons": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@heroicons/react": "^2.0.15",
-    "babel-plugin-macros": "^3.1.0",
     "daisyui": "^2.50.1",
+    "framer-motion": "^9.0.4",
     "react": "^18.2.0",
     "react-countdown": "^2.3.5",
-    "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
-    "typewriter-effect": "^2.19.0",
-    "vite-plugin-babel-macros": "^1.0.6"
+    "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
+    "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react-swc": "^3.0.0",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",

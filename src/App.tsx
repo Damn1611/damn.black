@@ -1,9 +1,9 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Typewriter from 'typewriter-effect';
 import { FaGithub, FaDiscord, FaSteam } from 'react-icons/fa';
 import './App.css';
 
-import CustomCursor from './components/CustomCursor/CustomCursor';
+import { motion } from 'framer-motion';
 
 import quotes from './assets/quotes.json';
 const getQuote = () => {
@@ -12,10 +12,43 @@ const getQuote = () => {
 
 
 function App() {
-  
+
+  //cursor
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0,
+  });
+
+  useEffect(() => {
+    const mouseMove = (e: { clientX: any; clientY: any; }) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", mouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", mouseMove);
+    };
+  }, []);
+
+// Set cursor variant to change color on hover text
+const [cursorVariant, setCursorVariant] = useState("default");
+
+// Variant animation
+const variants = {
+  default: {
+    x: mousePosition.x - 8,
+    y: mousePosition.y - 8,
+    zIndex: 100,
+  }
+};
 
   //countdown
   const [timeLeft, setTimeLeft] = useState<{ days: number, hours: number, minutes: number, seconds: number }>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -52,9 +85,15 @@ function App() {
   };
 
   return (
-
+ 
     <div className={`App ${isTypingFinished ? 'App-loaded' : ''}`}>
-       <CustomCursor />
+
+<motion.div
+       className="cursor"
+       variants={variants}
+       animate={cursorVariant}
+     ></motion.div>
+
       <div className="container" onLoad={handleQuote}>
       <h1 className={`big-text ${isTypingFinished ? 'big-text-done' : ''}`}>
       <Typewriter

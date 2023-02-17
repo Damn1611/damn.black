@@ -7,8 +7,8 @@ html {
 }
 
 .App {
-  background: rgb(26,7,59);
-  background: linear-gradient(150deg, rgba(26,7,59,1) 0%, rgba(48,10,38,1) 39%, rgba(2,35,75,1) 100%);
+  background: rgb(26, 7, 59);
+  background: linear-gradient(150deg, rgba(26, 7, 59, 1) 0%, rgba(48, 10, 38, 1) 39%, rgba(2, 35, 75, 1) 100%);
   background-position: 0% 50%;
   background-size: 300% 300%;
   display: flex;
@@ -17,17 +17,19 @@ html {
   height: 100vh;
   column-gap: 20px;
 }
+
 .App-loaded {
   animation: gradient 1.5s ease-out forwards;
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	100% {
-		background-position: 100% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 .container {
@@ -38,6 +40,7 @@ html {
   height: 10vh;
   width: 100vw;
 }
+
 .btn-container {
   margin-top: 3vh;
   display: grid;
@@ -45,34 +48,56 @@ html {
 }
 
 h1.big-text {
-  font-size: calc(40px + 2vw)/*10vw clamp(2.7rem, 15vw, 7rem) */;
+  font-size: calc(40px + 2vw)
+    /*10vw clamp(2.7rem, 15vw, 7rem) */
+  ;
   font-weight: 700;
 }
 
 .big-text {
   animation: none;
 }
+
 .big-text-done {
   animation: text-up 1.5s ease forwards;
 }
+
 @keyframes text-up {
   from {
     transform: translateY(0);
   }
+
   to {
     transform: translateY(-2vh);
   }
 }
 
-
+.quote-container {
+  position: relative;
+  margin-top: calc(15px + 0.390625vw);
+  /* Adjust this value to match the height of your quote-container */
+  margin-bottom: calc(15px + 0.390625vw);
+  /* Adjust this value to match the height of your quote-container */
+}
 
 .quote {
+  opacity: 0;
+  font-size: calc(18px + 0.390625vw);
+  text-align: center;
+  position: absolute;
+  width: clamp(50vw, 90vw, 100vw);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* .quote {
   opacity: 0;
   font-weight: 500;
   width: clamp(50vw, 90vw, 100vw);
   text-align: center;
-  font-size: calc(15px + 0.390625vw)/*5vw clamp(1rem, 8vw, 2.5rem) */;
-}
+  font-size: calc(15px + 0.390625vw);
+} */
 
 .quote-done {
   animation: quote-appear 0.7s ease-out 1.4s forwards;
@@ -82,6 +107,7 @@ h1.big-text {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -92,9 +118,10 @@ h1.big-text {
 }
 
 .my-custom-btn {
-  border-width: clamp(2px,3px,4px) !important;
+  border-width: clamp(2px, 3px, 4px) !important;
   opacity: 0;
 }
+
 .my-custom-btn:hover {
   animation-name: color-transition;
   animation-duration: 0.3s;
@@ -105,6 +132,7 @@ h1.big-text {
   from {
     color: currentColor;
   }
+
   to {
     color: primary;
   }
@@ -121,11 +149,13 @@ h1.big-text {
     opacity: 0;
     margin: 0 0.4rem;
   }
+
   40% {
     transform: translateY(-2vh);
     opacity: 0.4;
     margin: 0 0.4rem;
   }
+
   100% {
     transform: translateY(2vh);
     opacity: 1;
@@ -138,7 +168,9 @@ h1.big-text {
   justify-content: center;
   align-items: center;
   column-gap: 1vh;
-  font-size: calc(13px + 0.390625vw)/* 5vw */;
+  font-size: calc(13px + 0.390625vw)
+    /* 5vw */
+  ;
   font-weight: 400;
 }
 
@@ -155,8 +187,45 @@ h1.big-text {
     transform: translateY(1vh);
     opacity: 0;
   }
+
   100% {
     transform: translateY(4.5vh);
     opacity: 1;
   }
+}
+
+*,
+*::before,
+*::after {
+  cursor: none !important;
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  background-color: #000;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference
+}
+
+.cursor:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  background-color: #d926aa;
+  border-radius: 50%;
+  transition: transform .1s ease-in-out
+}
+
+.cursor.active:before {
+  transform: scale(1.5)
 }
