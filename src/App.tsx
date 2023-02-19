@@ -14,8 +14,9 @@ const getQuote = () => {
 function App() {
 
   //cursor
+  const [cursorOpacity, setCursorOpacity] = useState(1);
   const [mousePosition, setMousePosition] = useState({
-    x: 0,
+    x: -100,
     y: 0,
   });
 
@@ -27,10 +28,24 @@ function App() {
       });
     };
 
+
     window.addEventListener("mousemove", mouseMove);
 
     return () => {
       window.removeEventListener("mousemove", mouseMove);
+
+    };
+  }, []);
+
+  useEffect(() => {
+    const touchStart = () => {
+      setCursorOpacity(0);
+    };
+
+    window.addEventListener("touchstart", touchStart);
+
+    return () => {
+      window.removeEventListener("touchstart", touchStart);
     };
   }, []);
 
@@ -43,6 +58,7 @@ const variants = {
     x: mousePosition.x - 8,
     y: mousePosition.y - 8,
     zIndex: 100,
+    opacity: cursorOpacity,
   }
 };
 

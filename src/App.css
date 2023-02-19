@@ -4,12 +4,13 @@
 
 html {
   font-size: calc(60% + 0.8vmin);
+  overflow: hidden;
 }
 
 .App {
   background: rgb(26, 7, 59);
   background: linear-gradient(150deg, rgba(26, 7, 59, 1) 0%, rgba(48, 10, 38, 1) 39%, rgba(2, 35, 75, 1) 100%);
-  background-position: 0% 50%;
+  background-position: 0% 0%;
   background-size: 300% 300%;
   display: flex;
   justify-content: center;
@@ -24,7 +25,7 @@ html {
 
 @keyframes gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 0% 0%;
   }
 
   100% {
@@ -35,10 +36,16 @@ html {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   height: 10vh;
   width: 100vw;
+}
+
+@media (max-width: 767px) {
+  .container {
+    margin-top: -10vh; /* or whatever height you want to set */
+  }
 }
 
 .btn-container {
