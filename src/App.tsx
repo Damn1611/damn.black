@@ -133,7 +133,7 @@ function App() {
         </div>
 
         <div className="btn-container">
-          {/*           <a
+          <a
             href="https://github.com/damn1611"
             target="_blank"
             rel="noopener noreferrer"
@@ -142,7 +142,7 @@ function App() {
             }`}
           >
             <FaGithub style={{ fontSize: "1.8em" }} />
-          </a> */}
+          </a>
 
           <a
             href="https://discord.gg/animazing"
