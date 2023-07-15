@@ -69,7 +69,7 @@ function App() {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const difference = +new Date("Aug 6, 2023 00:00:00") - +new Date();
+      const difference = +new Date("Jun 22, 2024 00:00:00") - +new Date();
       let timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
       if (difference > 0) {
         timeLeft = {
