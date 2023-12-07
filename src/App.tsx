@@ -145,7 +145,7 @@ function App() {
           </a>
 
           <a
-            href="https://discord.gg/animazing"
+            href="https://discord.gg/faizlemouv"
             target="_blank"
             rel="noopener noreferrer"
             className={`btn btn-outline tertiary btn-md lg:btn-lg my-custom-btn ${
